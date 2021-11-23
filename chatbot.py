@@ -18,7 +18,17 @@ for line in lines:
 
 conversations_ids = []
 for conversation in conversations[:-1]:
-    _conversation = conversation.split(' +++$+++ ')[-1][1:-1].replace("'",'')
+    _conversation = conversation.split(' +++$+++ ')[-1][1:-1].replace("'",'').replace(" ","")
     conversations_ids.append(_conversation.split(','))
     
+questions = []
+answers = []
+
+
+for conversation in conversations_ids:
+    for i in range(len(conversation) - 1):
+        questions.append(id2line[conversation[i]])
+        answers.append(id2line[conversation[i+1]])
+        
+        
     
