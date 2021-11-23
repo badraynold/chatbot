@@ -50,6 +50,13 @@ def clean_text(text):
     text = re.sub(r"[-()\"#/@;:<>{}+=~|.?,]", "", text)
     return text
 
+clean_questions = []
+clean_answers = []
+
+for i in range(len(questions) - 1):
+    clean_questions.append(clean_text(questions[i]))
+    clean_answers.append(clean_text(answers[i]))
+
     
     
     
