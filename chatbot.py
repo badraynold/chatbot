@@ -143,6 +143,14 @@ def model_inputs():
     
     return inputs, targets, lr, keep_prob
     
+#Preprocessing the targets.
+def preprocess_targets(targets, word2int, batch_size):
+    left_side = tf.fill([batch_size, 1], word2int['<SOS>'])
+    right_side = tf.strided_slice(targets, [0,0], [batch_size, -1], [1,1])
+    preprocessed_targets = tf.concat([left_side, right_side], 1)
+    return preprocessed_targets
+
+    
     
             
             
